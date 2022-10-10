@@ -3,7 +3,7 @@
 
 ## Exercice 1. Disques et partitions
 
-1, 2, 3.
+1.
 
 ```bash
 $ sudo fdisk /dev/sdb
@@ -86,39 +86,5 @@ $ sudo vgdisplay
 $ sudo lvcreate -n lvData -l 100%FREE vg1
 ```
 
-6. 
 
-```bash
-$ sudo mkfs -t ext4 /dev/vg1/lvData
-$ sudo mkdir /data
-$ sudo nano /etc/fstab
-```
-
-Il faut ajouter la ligne suivante :
-
-```bash
-/dev/vg1/lvData /data ext4 defaults 0 2
-```
-
-7. 
-
-```bash
-$ sudo fdisk /dev/sdc
-$ sudo pvcreate /dev/sdc1
-$ sudo pvdisplay
-```
-
-8. 
-
-```bash
-$ sudo vgextend vg1 /dev/sdc1
-$ sudo vgdisplay
-```
-
-9. 
-
-```bash
-$ sudo lvresize -l +100%FREE /dev/vg1/lvData
-$ sudo resize2fs /dev/vg1/lvData
-```
 
